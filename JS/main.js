@@ -1,39 +1,39 @@
 class Employee {
-  constructor(name, age) {
-    this.name = name;
-    this.age = 0;
+  constructor(n,a) {
+    this.name = n;
+    this.age = a;
     this.annualSalary = 0;
   }
 }
 
 class Manager extends Employee {
-  constructor(m, name, age) {
-    super(name, age);
+  constructor(n,a,m) {
+    super(n,a);
     this.payRate = m;
-    if (workHours >= 40) {
-      this.type = "Manager";
-    }
+    this.type = "Manager";
+    console.log("Employee created");
   }
+
   calculatePay() {
     this.annualSalary = this.payRate * 40 * 52 - 1000;
   }
 }
 
 class PartTime extends Employee {
-  constructor(m, name, age) {
-    super(name, age);
+  constructor(n,a,m) {
+    super(n,a);
     this.payRate = m;
-    if (workHours < 40) {
-      this.type = "Part-Time";
-    }
+    this.type = "Part-Time";
   }
   calculatePay() {
     this.annualSalary = this.payRate * 40 * 52;
   }
 }
 
-class myProject {
-  constructor() {}
+class Menu {
+  constructor() {
+    
+  }
 
   displayMenu() {
     let options = Number(
@@ -43,37 +43,45 @@ class myProject {
     );
     switch (options) {
       case 1:
-        this.addEmployee();
+        choice = "Add Employee";
+        break;
       case 2:
-        this.removeEmployee();
+        choice = "Remove Employee";
+        break;
       case 3:
-        this.editEmployee();
+        choice = "Edit Employee";
+        break;
       case 4:
-        this.displayEmployees();
+        choice = "Display Employee";
     }
+   
   }
   addEmployee() {
     let newEmployee = prompt(
       "Enter Employee's Info with commas: Name, Age, Work-Hours and Pay Rate"
     );
     const wordsArray = newEmployee.split(" ");
-    console.log(wordsArray);
+    //console.log(wordsArray);
   }
 
-  removeEmployee(){
+  removeEmployee() {
     let deleteEmployee = prompt("Enter the employee's ID or name that is to be removed");
-    const leftArray = deleteEmployee.filter(Employee === name || "ID")
-    console.log(leftArray)
-  }
-
-  editEmployee() {
+    const leftEmployee = deleteEmployee.filter(Employee === n || "ID");
+    console.log(leftEmployee)
     
   }
+
+  editEmployee() {}
+
+
+
   displayEmployees() {
-    console.log("ID\tName\tSalary\tHours\tPay\tFT/Pt")
+    
   }
+  
 }
 
 ((e) => {
-  //const myProject = new myProject();
+    
+  
 })();
