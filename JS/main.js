@@ -3,9 +3,10 @@ class Employee {
     this.name = name;
     this.age = age;
     this.annualSalary = 0;
-
   }
+  
 }
+
 class Manager extends Employee {
   constructor(name,age,pay) {
     super(name,age);
@@ -14,28 +15,62 @@ class Manager extends Employee {
     
   }
   calculatePay() {
-    this.annualSalary = ((this.payRate * 40 )* 52)- 1000;
+    this.annualSalary = ((this.payRate * hours)* 52)- 1000;
   }
 }
 
 class PartTime extends Employee {
-  constructor(name,age,pay) {
+  constructor(name,age,pay,hours) {
     super(name,age);
     this.payRate = pay;
-    this.hours = 0;
+    this.hours = hours;
     this.employeeType = "Part Time"
   }
   calculatePay() {
-    this.annualSalary = ((this.payRate * 40 )* 52);
+    this.annualSalary = ((this.payRate * hours )* 52);
   }
 }
 
 class Menu {
-  constructor() {
-   
-  console.log("I have the greatest TEAM!")
-  console.log("ID\tName\tSalary\tHours\tPay\tFT/PT")
+  constructor(name,age,a,hours,pay) {
+    this.id = "ID"
+    this.name = name;
+    this.age = age;
+    this.annualSalary = a;
+    this.hours = hours;
+    this.payRate = pay;
+    this.employeeType = " ";
+    console.log("I have the greatest TEAM!")
+    console.log("ID\tName\tSalary\tHrs\tPay\tFT/PT")
+    const oneEmployee =  new Employee();
+    oneEmployee.name = "Samuel"
+    oneEmployee.annualSalary = 9660
+    oneEmployee.age = 32
+    oneEmployee.hours = 41
+    oneEmployee.pay = 5
+    oneEmployee.employeeType = "Manager";
+    console.log("1"+"\t"+oneEmployee.name+"\t" +oneEmployee.annualSalary+"\t"+oneEmployee.hours+"\t" +oneEmployee.pay+"\t" +oneEmployee.employeeType )
+    const twoEmployee =  new Employee();
+    twoEmployee.name = "Jimbo"
+    twoEmployee.annualSalary = 1664;
+    twoEmployee.age = 23
+    twoEmployee.hours = 32
+    twoEmployee.pay = 1
+    twoEmployee.employeeType = "Part Time";
+    console.log("2"+"\t"+twoEmployee.name+"\t" +twoEmployee.annualSalary+"\t"+twoEmployee.hours+"\t" +twoEmployee.pay+"\t" +twoEmployee.employeeType )
+    const threeEmployee =  new Employee();
+    threeEmployee.name = "Stacey"
+    threeEmployee.annualSalary = 7320;
+    threeEmployee.age = 29;
+    threeEmployee.hours = 40
+    threeEmployee.pay = 4
+    threeEmployee.employeeType = "Manager";
+    console.log("3"+"\t"+threeEmployee.name+"\t" +threeEmployee.annualSalary+"\t"+threeEmployee.hours+"\t" +threeEmployee.pay+"\t" +threeEmployee.employeeType )
+    let workerArray = [oneEmployee,twoEmployee,threeEmployee];
+    console.log(workerArray)
   }
+  
+  
   
   displayMenu() {
     let options = Number(
@@ -96,12 +131,19 @@ class Menu {
     
   }
 
-  displayEmployee(name, age, annualSalary, hours, pay) {
-    
+  displayEmployee(name, age, annualSalary, hours, pay, employeeType) {
+    this.name = name;
+    this.age = age;
+    this.annualSalary = 0;
+    this.hours = 0;
+    this.payRate = pay;
+    this.employeeType = "";
+
   }
   
 }
 
 ((e) => {
   const menu = new Menu();
+  
 })();
