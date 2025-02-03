@@ -30,7 +30,7 @@ class PartTime extends Employee {
 }
 
 class Menu {
-  constructor(name,age,a,hours,pay) {
+  constructor(name, age, a, hours, pay) {
     this.id = "ID";
     this.name = name;
     this.age = age;
@@ -39,6 +39,10 @@ class Menu {
     this.payRate = pay;
     this.employeeType = " ";
     console.log("I have the greatest TEAM!");
+    console.log("The Wooden Table");
+    console.log("ID\tName\tSalary\tHrs\tPay\tFT/PT");
+    // console.log("The Wooden Table")
+    // console.log("ID\tName\tSalary\tHrs\tPay\tFT/PT");
     const oneEmployee = new Employee();
     oneEmployee.name = "Samuel";
     oneEmployee.annualSalary = 9400;
@@ -102,9 +106,8 @@ class Menu {
     let workerArray = [oneEmployee, twoEmployee, threeEmployee];
     console.log(workerArray);
   }
-
   displayMenu() {
-    let options = Number(
+    let getOptions = Number(
       prompt(
         "Menu:\n1. Add Employee\n2. Remove Employee\n3. Edit Employee\n4. Display Employees\n5"
       )
@@ -128,10 +131,12 @@ class Menu {
         break;
     }
   }
-  addEmployee(name, age, pay, hours) {
+  addEmployee(getOptions) {
     let newEmployee = prompt(
       "Enter Employee's Info with commas: Name, Age, Work hours and Pay Rate"
     );
+    const getNewAnswer = getOptions();
+
     if (this.hours >= 40) {
       newEmployee = new Manager(name, age, pay);
     } else {
@@ -139,12 +144,13 @@ class Menu {
     }
 
     let newArray = workerArray.split(",");
-    console.log(newArray)
+    console.log(newArray);
   }
-  removeEmployee(name) {
+  removeEmployee(workerArray, name) {
     let deleteEmployee = prompt("Enter employee's ID or name to be removed");
-    //for (let i = leftArray.length; 0 < i; )
-    let leftEmployee = deleteEmployee.filter(Employee === n);
+    let leftEmployee = workerArray.filter(Employee === name || "ID");
+    console.log(leftEmployee);
+
     alert(name + "is no longer with the company");
     let leftArray = [];
     console.clear();
@@ -155,10 +161,9 @@ class Menu {
   }
 
   displayEmployee() {
-    console.log("The Wooden Table")
+    console.log("The Wooden Table");
     console.log("ID\tName\tSalary\tHrs\tPay\tFT/PT");
   }
-  
 }
 
 ((e) => {
